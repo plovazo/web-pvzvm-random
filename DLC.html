@@ -92,7 +92,7 @@
             { ID: 1, baseID: -1, name: "Peashooter", winCondition: true, Mushroom: false, Aquatic: false, UseTorchwood: true, imageURL: "Plant_Images/Peashooter.png"},
             { ID: 2, baseID: -1, name: "Sunflower", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Sunflower.png"},
             { ID: 3, baseID: -1, name: "CherryBomb", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/CherryBomb.png"},
-            { ID: 4, baseID: -1, name: "Wallnut", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Wallnut.png"},
+            { ID: 4, baseID: -1, name: "WallNut", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/WallNut.png"},
             { ID: 5, baseID: -1, name: "PotatoMine", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/PotatoMine.png"},
             { ID: 6, baseID: -1, name: "Snowpea", winCondition: true, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Snowpea.png"},
             { ID: 7, baseID: -1, name: "Chomper", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Chomper.png"},
@@ -242,12 +242,12 @@
                 `Random DLC Plant: ${selectedPlant.name} <br>
                 <img src="${selectedPlant.imageURL}" alt="${selectedPlant.name}" width="100">`;
             document.getElementById('randomZombieDLCid').innerHTML = 
-                `Random DLC Zombie: ${selectedPlant.name} <br>
+                `Random DLC Zombie: ${selectedZombie.name} <br>
                 <img src="${selectedZombie.imageURL}" alt="${selectedZombie.name}" width="100">`;
         }
 
         function displayLoadout(pLoadout,zLoadout) {
-            
+
         }
 
         function getShuffledArray(arr) {
