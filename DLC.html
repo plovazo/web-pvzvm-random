@@ -59,13 +59,13 @@
     <ul class="tabs">
         <li><a href="index.html">Home</a></li>
         <li><a href="DLC.html">PVZ DLC Mod</a></li>
-        <li><a href="page3.html">Tab 3</a></li>
+        <li><a href="VM.html">Console</a></li>
         <li><a href="page4.html">Tab 4</a></li>
     </ul>
 
     <!-- Main Body -->
     <div class="main-body">
-        <h1>Welcome to Tab Page</h1>
+        <h1>PVZ DLC Mod</h1>
         <p>This page a randomly generated number:</p>
 
         <!-- Button to Generate Random Number -->
@@ -74,90 +74,94 @@
         <!-- Display Random Number -->
         <p id="randomPlantDLCid"></p>
 
+        <!-- Display Random Number -->
+        <p id="randomZombieDLCid"></p>
+
     </div>
 
     <!-- Footer -->
     <footer>
         <!-- Button to Generate Random Number -->
         <button onclick="generateRandomNumber()">Generate Random Number</button>
-        <p>Made by Plovazoo</p>
+        <p>Made by Plovazo</p>
     </footer>
 
     <script>
 
         const dlcPlant = [
-            { ID: 1, baseID: -1, name: "Peashooter", winCondition: true, Mushroom: false, Pool: false, UseTorchwood: true, imageURL: "Plant_Images/Peashooter.png"},
-            { ID: 2, baseID: -1, name: "Sunflower", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/Sunflower.png"},
-            { ID: 3, baseID: -1, name: "CherryBomb", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/CherryBomb.png"},
-            { ID: 4, baseID: -1, name: "Wallnut", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/Wallnut.png"},
-            { ID: 5, baseID: -1, name: "PotatoMine", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/PotatoMine.png"},
-            { ID: 6, baseID: -1, name: "Snowpea", winCondition: true, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/Snowpea.png"},
-            { ID: 7, baseID: -1, name: "Chomper", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/Chomper.png"},
-            { ID: 8, baseID: -1, name: "Repeater", winCondition: true, Mushroom: false, Pool: false, UseTorchwood: true, imageURL: "Plant_Images/Repeater.png"},
-            { ID: 9, baseID: -1, name: "PuffShroom", winCondition: false, Mushroom: true, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/PuffShroom.png"},
-            { ID: 10, baseID: -1, name: "SunShroom", winCondition: false, Mushroom: true, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/SunShroom.png"},
-            { ID: 11, baseID: -1, name: "FumeShroom", winCondition: true, Mushroom: true, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/FumeShroom.png"},
-            { ID: 12, baseID: -1, name: "GraveBuster", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/GraveBuster.png"},
-            { ID: 13, baseID: -1, name: "HypnoShroom", winCondition: false, Mushroom: true, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/HypnoShroom.png"},
-            { ID: 14, baseID: -1, name: "ScaredyShroom", winCondition: true, Mushroom: true, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/ScaredyShroom.png"},
-            { ID: 15, baseID: -1, name: "IceShroom", winCondition: false, Mushroom: true, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/IceShroom.png"},
-            { ID: 16, baseID: -1, name: "DoomShroom", winCondition: false, Mushroom: true, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/DoomShroom.png"},
-            { ID: 17, baseID: -1, name: "LilyPad", winCondition: false, Mushroom: false, Pool: true, UseTorchwood: false, imageURL: "Plant_Images/LilyPad.png"},
-            { ID: 18, baseID: -1, name: "Squash", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/Squash.png"},
-            { ID: 19, baseID: -1, name: "Threepeater", winCondition: true, Mushroom: false, Pool: false, UseTorchwood: true, imageURL: "Plant_Images/Threepeater.png"},
-            { ID: 20, baseID: -1, name: "TangleKelp", winCondition: false, Mushroom: false, Pool: true, UseTorchwood: false, imageURL: "Plant_Images/TangleKelp.png"},
-            { ID: 21, baseID: -1, name: "Jalapeno", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/Jalapeno.png"},
-            { ID: 22, baseID: -1, name: "Spikeweed", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/Spikeweed.png"},
-            { ID: 23, baseID: -1, name: "Torchwood", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/Torchwood.png"},
-            { ID: 24, baseID: -1, name: "TallNut", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/TallNut.png"},
-            { ID: 25, baseID: -1, name: "SeaShroom", winCondition: false, Mushroom: true, Pool: true, UseTorchwood: false, imageURL: "Plant_Images/SeaShroom.png"},
-            { ID: 26, baseID: -1, name: "Plantern", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/Plantern.png"},
-            { ID: 27, baseID: -1, name: "Cactus", winCondition: true, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/Cactus.png"},
-            { ID: 28, baseID: -1, name: "Blover", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/Blover.png"},
-            { ID: 29, baseID: -1, name: "SplitPea", winCondition: true, Mushroom: false, Pool: false, UseTorchwood: true, imageURL: "Plant_Images/SplitPea.png"},
-            { ID: 30, baseID: -1, name: "Starfruit", winCondition: true, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/Starfruit.png"},
-            { ID: 31, baseID: -1, name: "Pumpkin", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/Pumpkin.png"},
-            { ID: 32, baseID: -1, name: "MagnetShroom", winCondition: false, Mushroom: true, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/MagnetShroom.png"},
-            { ID: 33, baseID: -1, name: "CabbagePult", winCondition: true, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/CabbagePult.png"},
-            { ID: 34, baseID: -1, name: "FlowerPot", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/FlowerPot.png"},
-            { ID: 35, baseID: -1, name: "KernelPult", winCondition: true, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/KernelPult.png"},
-            { ID: 36, baseID: -1, name: "CoffeeBean", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/CoffeeBean.png"},
-            { ID: 37, baseID: -1, name: "Garlic", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/Garlic.png"},
-            { ID: 38, baseID: -1, name: "UmbrellaLeaf", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/UmbrellaLeaf.png"},
-            { ID: 39, baseID: -1, name: "Marigold", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/Marigold.png"},
-            { ID: 40, baseID: -1, name: "MelonPult", winCondition: true, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/MelonPult.png"},
-            { ID: 41, baseID: 8, name: "GatlingPea", winCondition: true, Mushroom: false, Pool: false, UseTorchwood: true, imageURL: "Plant_Images/GatlingPea.png"},
-            { ID: 42, baseID: 2, name: "TwinSunflower", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/TwinSunflower.png"},
-            { ID: 43, baseID: 11, name: "GloomShroom", winCondition: false, Mushroom: true, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/GloomShroom.png"},
-            { ID: 44, baseID: 17, name: "Cattail", winCondition: true, Mushroom: false, Pool: true, UseTorchwood: false, imageURL: "Plant_Images/Cattail.png"},
-            { ID: 45, baseID: 40, name: "WinterMelon", winCondition: true, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/WinterMelon.png"},
-            { ID: 46, baseID: 32, name: "GoldMagnet", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/GoldMagnet.png"},
-            { ID: 47, baseID: 22, name: "SpikeRock", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/SpikeRock.png"},
-            { ID: 48, baseID: 35, name: "CobCannon", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/CobCannon.png"},
-            { ID: 49, baseID: -1, name: "PultShroom", winCondition: true, Mushroom: true, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/PultShroom.png"},
-            { ID: 50, baseID: -1, name: "WaterPot", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/WaterPot.png"},
-            { ID: 51, baseID: -1, name: "LightningReed", winCondition: true, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/LightningReed.png"},
-            { ID: 52, baseID: -1, name: "Hurrikale", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/Hurrikale.png"},
-            { ID: 53, baseID: -1, name: "FireShroom", winCondition: false, Mushroom: true, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/FireShroom.png"},
-            { ID: 54, baseID: -1, name: "Seastar", winCondition: true, Mushroom: false, Pool: true, UseTorchwood: false, imageURL: "Plant_Images/Seastar.png"},
-            { ID: 55, baseID: -1, name: "PickledPepper", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/PickledPepper.png"},
-            { ID: 56, baseID: -1, name: "ElectricPeashooter", winCondition: true, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/ElectricPeashooter.png"},
-            { ID: 57, baseID: -1, name: "BeeShooter", winCondition: true, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/BeeShooter.png"},
-            { ID: 58, baseID: -1, name: "Ampliflower", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/Ampliflower.png"},
-            { ID: 59, baseID: -1, name: "ShrinkingViolet", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/ShrinkingViolet.png"},
-            { ID: 60, baseID: -1, name: "AloeVera", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/AloeVera.png"},
-            { ID: 61, baseID: -1, name: "BonkChoy", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/BonkChoy.png"},
-            { ID: 62, baseID: -1, name: "ChardGuard", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/ChardGuard.png"},
-            { ID: 63, baseID: -1, name: "OakArcher", winCondition: true, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/OakArcher.png"},
-            { ID: 64, baseID: -1, name: "LemonNade", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/LemonNade.png"},
-            { ID: 65, baseID: 11, name: "FrostShroom", winCondition: true, Mushroom: true, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/FrostShroom.png"},
-            { ID: 66, baseID: 7, name: "Devourer", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/Devourer.png"},
-            { ID: 67, baseID: 23, name: "Plasmawood", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/Plasmawood.png"},
-            { ID: 68, baseID: 6, name: "IceQueenPea", winCondition: true, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/IceQueenPea.png"},
-            { ID: 69, baseID: 24, name: "VineNut", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/VineNut.png"},
-            { ID: 70, baseID: 22, name: "Thornmoss", winCondition: false, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/Thornmoss.png"},
-            { ID: 71, baseID: 14, name: "BraveryShroom", winCondition: true, Mushroom: true, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/BraveryShroom.png"},
-            { ID: 72, baseID: 27, name: "KingCactus", winCondition: true, Mushroom: false, Pool: false, UseTorchwood: false, imageURL: "Plant_Images/KingCactus.png"}
+            { ID: 1, baseID: -1, name: "Peashooter", winCondition: true, Mushroom: false, Aquatic: false, UseTorchwood: true, imageURL: "Plant_Images/Peashooter.png"},
+            { ID: 2, baseID: -1, name: "Sunflower", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Sunflower.png"},
+            { ID: 3, baseID: -1, name: "CherryBomb", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/CherryBomb.png"},
+            { ID: 4, baseID: -1, name: "Wallnut", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Wallnut.png"},
+            { ID: 5, baseID: -1, name: "PotatoMine", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/PotatoMine.png"},
+            { ID: 6, baseID: -1, name: "Snowpea", winCondition: true, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Snowpea.png"},
+            { ID: 7, baseID: -1, name: "Chomper", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Chomper.png"},
+            { ID: 8, baseID: -1, name: "Repeater", winCondition: true, Mushroom: false, Aquatic: false, UseTorchwood: true, imageURL: "Plant_Images/Repeater.png"},
+            { ID: 9, baseID: -1, name: "PuffShroom", winCondition: false, Mushroom: true, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/PuffShroom.png"},
+            { ID: 10, baseID: -1, name: "SunShroom", winCondition: false, Mushroom: true, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/SunShroom.png"},
+            { ID: 11, baseID: -1, name: "FumeShroom", winCondition: true, Mushroom: true, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/FumeShroom.png"},
+            { ID: 12, baseID: -1, name: "GraveBuster", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/GraveBuster.png"},
+            { ID: 13, baseID: -1, name: "HypnoShroom", winCondition: false, Mushroom: true, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/HypnoShroom.png"},
+            { ID: 14, baseID: -1, name: "ScaredyShroom", winCondition: true, Mushroom: true, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/ScaredyShroom.png"},
+            { ID: 15, baseID: -1, name: "IceShroom", winCondition: false, Mushroom: true, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/IceShroom.png"},
+            { ID: 16, baseID: -1, name: "DoomShroom", winCondition: false, Mushroom: true, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/DoomShroom.png"},
+            { ID: 17, baseID: -1, name: "LilyPad", winCondition: false, Mushroom: false, Aquatic: true, UseTorchwood: false, imageURL: "Plant_Images/LilyPad.png"},
+            { ID: 18, baseID: -1, name: "Squash", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Squash.png"},
+            { ID: 19, baseID: -1, name: "Threepeater", winCondition: true, Mushroom: false, Aquatic: false, UseTorchwood: true, imageURL: "Plant_Images/Threepeater.png"},
+            { ID: 20, baseID: -1, name: "TangleKelp", winCondition: false, Mushroom: false, Aquatic: true, UseTorchwood: false, imageURL: "Plant_Images/TangleKelp.png"},
+            { ID: 21, baseID: -1, name: "Jalapeno", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Jalapeno.png"},
+            { ID: 22, baseID: -1, name: "Spikeweed", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Spikeweed.png"},
+            { ID: 23, baseID: -1, name: "Torchwood", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Torchwood.png"},
+            { ID: 24, baseID: -1, name: "TallNut", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/TallNut.png"},
+            { ID: 25, baseID: -1, name: "SeaShroom", winCondition: false, Mushroom: true, Aquatic: true, UseTorchwood: false, imageURL: "Plant_Images/SeaShroom.png"},
+            { ID: 26, baseID: -1, name: "Plantern", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Plantern.png"},
+            { ID: 27, baseID: -1, name: "Cactus", winCondition: true, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Cactus.png"},
+            { ID: 28, baseID: -1, name: "Blover", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Blover.png"},
+            { ID: 29, baseID: -1, name: "SplitPea", winCondition: true, Mushroom: false, Aquatic: false, UseTorchwood: true, imageURL: "Plant_Images/SplitPea.png"},
+            { ID: 30, baseID: -1, name: "Starfruit", winCondition: true, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Starfruit.png"},
+            { ID: 31, baseID: -1, name: "Pumpkin", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Pumpkin.png"},
+            { ID: 32, baseID: -1, name: "MagnetShroom", winCondition: false, Mushroom: true, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/MagnetShroom.png"},
+            { ID: 33, baseID: -1, name: "CabbagePult", winCondition: true, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/CabbagePult.png"},
+            { ID: 34, baseID: -1, name: "FlowerPot", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/FlowerPot.png"},
+            { ID: 35, baseID: -1, name: "KernelPult", winCondition: true, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/KernelPult.png"},
+            { ID: 36, baseID: -1, name: "CoffeeBean", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/CoffeeBean.png"},
+            { ID: 37, baseID: -1, name: "Garlic", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Garlic.png"},
+            { ID: 38, baseID: -1, name: "UmbrellaLeaf", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/UmbrellaLeaf.png"},
+            { ID: 39, baseID: -1, name: "Marigold", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Marigold.png"},
+            { ID: 40, baseID: -1, name: "MelonPult", winCondition: true, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/MelonPult.png"},
+            { ID: 41, baseID: 8, name: "GatlingPea", winCondition: true, Mushroom: false, Aquatic: false, UseTorchwood: true, imageURL: "Plant_Images/GatlingPea.png"},
+            { ID: 42, baseID: 2, name: "TwinSunflower", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/TwinSunflower.png"},
+            { ID: 43, baseID: 11, name: "GloomShroom", winCondition: false, Mushroom: true, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/GloomShroom.png"},
+            { ID: 44, baseID: 17, name: "Cattail", winCondition: true, Mushroom: false, Aquatic: true, UseTorchwood: false, imageURL: "Plant_Images/Cattail.png"},
+            { ID: 45, baseID: 40, name: "WinterMelon", winCondition: true, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/WinterMelon.png"},
+            { ID: 46, baseID: 32, name: "GoldMagnet", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/GoldMagnet.png"},
+            { ID: 47, baseID: 22, name: "SpikeRock", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/SpikeRock.png"},
+            { ID: 48, baseID: 35, name: "CobCannon", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/CobCannon.png"},
+            { ID: 49, baseID: -1, name: "PultShroom", winCondition: true, Mushroom: true, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/PultShroom.png"},
+            { ID: 50, baseID: -1, name: "WaterPot", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/WaterPot.png"},
+            { ID: 51, baseID: -1, name: "LightningReed", winCondition: true, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/LightningReed.png"},
+            { ID: 52, baseID: -1, name: "Hurrikale", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Hurrikale.png"},
+            { ID: 53, baseID: -1, name: "FireShroom", winCondition: false, Mushroom: true, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/FireShroom.png"},
+            { ID: 54, baseID: -1, name: "Seastar", winCondition: true, Mushroom: false, Aquatic: true, UseTorchwood: false, imageURL: "Plant_Images/Seastar.png"},
+            { ID: 55, baseID: -1, name: "PickledPepper", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/PickledPepper.png"},
+            { ID: 56, baseID: -1, name: "ElectricPeashooter", winCondition: true, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/ElectricPeashooter.png"},
+            { ID: 57, baseID: -1, name: "Beeshooter", winCondition: true, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Beeshooter.png"},
+            { ID: 58, baseID: -1, name: "Ampliflower", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Ampliflower.png"},
+            { ID: 59, baseID: -1, name: "ShrinkingViolet", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/ShrinkingViolet.png"},
+            { ID: 60, baseID: -1, name: "AloeVera", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/AloeVera.png"},
+            { ID: 61, baseID: -1, name: "BonkChoy", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/BonkChoy.png"},
+            { ID: 62, baseID: -1, name: "ChardGuard", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/ChardGuard.png"},
+            { ID: 63, baseID: -1, name: "OakArcher", winCondition: true, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/OakArcher.png"},
+            { ID: 64, baseID: -1, name: "LemonNade", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/LemonNade.png"},
+            { ID: 65, baseID: 11, name: "FrostShroom", winCondition: true, Mushroom: true, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/FrostShroom.png"},
+            { ID: 66, baseID: 7, name: "Devourer", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Devourer.png"},
+            { ID: 67, baseID: 23, name: "Plasmawood", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Plasmawood.png"},
+            { ID: 68, baseID: 6, name: "IceQueenPea", winCondition: true, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/IceQueenPea.png"},
+            { ID: 69, baseID: 24, name: "VineNut", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/VineNut.png"},
+            { ID: 70, baseID: 22, name: "Thornmoss", winCondition: false, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/Thornmoss.png"},
+            { ID: 71, baseID: 14, name: "BraveryShroom", winCondition: true, Mushroom: true, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/BraveryShroom.png"},
+            { ID: 72, baseID: 27, name: "KingCactus", winCondition: true, Mushroom: false, Aquatic: false, UseTorchwood: false, imageURL: "Plant_Images/KingCactus.png"}
+
         ];
 
         const dlcZombie = [
@@ -199,12 +203,136 @@
             { ID: 36, name: "Trashcan", metal: false, imageURL: "Zombie_Images/Trashcan.png"}
         ];
 
+        //sunflower default in daytime, sunshroom is default in nighttime
+        //useless units excluded by map
+        const dlcDayWoodsPlantID =  [1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,27,28,29,30,31,32,33,35,36,37,38,40,41,42,43,44,45,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72]
+        const dlcNightPlantID =     [1,2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,27,28,29,30,31,32,33,35,37,38,40,41,42,43,44,45,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72]
+        const dlcPoolPlantID =      [1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,27,28,29,30,31,32,33,35,36,37,38,40,41,42,43,44,45,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72]
+        const dlcFogPlantID =       [1,2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,35,37,38,40,41,42,43,44,45,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72]
+        const dlcRoofPlantID =      [1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23,24,25,27,28,29,30,31,32,33,34,35,36,37,38,40,41,42,43,44,45,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,71,72]
+        const dlcMoonPlantID =      [1,2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,20,21,23,24,25,27,28,29,30,31,32,33,34,35,37,38,40,41,42,43,44,45,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,71,72]
+
+        //grave is default and excludes some units
+        const dlcDayNightWoodsZID = [1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36]
+        const dlcPoolFogZID =       [1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36]
+        const dlcRoofMoonZID =      [1,3,4,5,6,7,8,10,11,12,13,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36]
+
+        const dlcWinConditionPID =  [1,6,8,11,14,19,27,29,30,33,35,40,41,44,45,49,51,54,56,57,63,65,68,71,72]
+        const dlcMushroomPID =      [9,10,11,13,14,15,16,25,32,43,49,53,65,71]
+        const dlcAquaticPID =       [17,20,25,44,54]
+        const dlcUseTorchwoodPID =  [1,8,19,29,41]
+        const dlcMetalZID =         [4,7,8,10,12,14,15,17,23]
+
+        const graveID = 2;
+        const sunflowerID = 2;
+        const sunShroomID = 10;
+        const torchwoodID = 23;
+        const magnetShroomID = 32;
+        const coffeeBeanID = 36;
+        const waterPotID = 50;
+
         function generateRandomNumber() {
-            var randomPlantDLCid = Math.floor(Math.random() * 72) + 1;
-            var randomZombieDLCid = Math.floor(Math.random() * 36) + 1;
-            
+            var randomPlantDLCid = Math.floor(Math.random() * 72);
+            var randomZombieDLCid = Math.floor(Math.random() * 36);
             // Display
-            document.getElementById('randomPlantDLCid').innerText = 'Random DLC Plant: ' + dlcPlant[randomPlantDLCid].name;
+            //document.getElementById('randomPlantDLCid').innerText = 'Random DLC Plant: ' + dlcPlant[randomPlantDLCid].name;
+            var selectedPlant = dlcPlant[randomPlantDLCid];
+            var selectedZombie = dlcZombie[randomZombieDLCid];
+            document.getElementById('randomPlantDLCid').innerHTML = 
+                `Random DLC Plant: ${selectedPlant.name} <br>
+                <img src="${selectedPlant.imageURL}" alt="${selectedPlant.name}" width="100">`;
+            document.getElementById('randomZombieDLCid').innerHTML = 
+                `Random DLC Zombie: ${selectedPlant.name} <br>
+                <img src="${selectedZombie.imageURL}" alt="${selectedZombie.name}" width="100">`;
+        }
+
+        function displayLoadout(pLoadout,zLoadout) {
+            
+        }
+
+        function getShuffledArray(arr) {
+            let shuffled = arr.slice(); // Copy the array to avoid modifying the original
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; // Swap elements
+            }
+            return shuffled;
+        }
+
+        // returns empty int array or int array size 5+5
+        function randomizeDay(){
+            let validLoadout = false;
+            let pLoadout;
+            let zLoadout;
+            let slotCount = 5;
+            //to avoid infinite looping
+            for(let limitCounter=40; limitCounter>0; limitCounter--){
+                for(let piece=0; piece<30; piece+=slotCount){
+                    pLoadout = getShuffledArray(dlcDayWoodsPlantID).slice(piece,piece+slotCount);
+                    zLoadout = getShuffledArray(dlcDayNightWoodsZID).slice(piece,piece+slotCount);
+                    if(pLoadout.includes(coffeeBeanID) 
+                        != hasCommonElement(dlcMushroomPID,pLoadout)){
+                        continue;
+                    }
+                    if(pLoadout.includes(waterPotID) 
+                        != hasCommonElement(dlcAquaticPID,pLoadout)){
+                        continue;
+                    }
+                    if(pLoadout.includes(torchwoodID)){
+                        if(!hasCommonElement(dlcUseTorchwoodPID,pLoadout)){
+                            continue;
+                        }
+                    }
+                    if(!hasCommonElement(dlcWinConditionPID,pLoadout)){
+                        continue;
+                    }
+                    if(pLoadout.includes(magnetShroomID)){
+                        if(hasCommonElement(dlcMetalZID,zLoadout)){
+                            continue;
+                        }
+                    }
+
+                    // if have upgradable without base, invalid
+                    if(pLoadout.includes(41) && !pLoadout.includes(8)){
+                        continue;} //gatlingpea
+                    //if(!pLoadout.includes(42) && !pLoadout.includes(2)){
+                    //    continue;} //twinsunflower
+                    if(pLoadout.includes(43) && !pLoadout.includes(11)){
+                        continue;} //gloomshroom
+                    if(pLoadout.includes(44) && !pLoadout.includes(17)){
+                        continue;} //cattail
+                    if(pLoadout.includes(45) && !pLoadout.includes(40)){
+                        continue;} //wintermelon
+                    if(pLoadout.includes(47) && !pLoadout.includes(22)){
+                        continue;} //spikerock
+                    if(pLoadout.includes(48) && !pLoadout.includes(35)){
+                        continue;} //cobcannon
+                    if(pLoadout.includes(65) && !pLoadout.includes(11)){
+                        continue;} //frostshroom
+                    if(pLoadout.includes(66) && !pLoadout.includes(7)){
+                        continue;} //devourer
+                    if(pLoadout.includes(67) && !pLoadout.includes(23)){
+                        continue;} //plasmawood
+                    if(pLoadout.includes(68) && !pLoadout.includes(6)){
+                        continue;} //icequeenpea
+                    if(pLoadout.includes(69) && !pLoadout.includes(24)){
+                        continue;} //vinenut
+                    if(pLoadout.includes(70) && !pLoadout.includes(22)){
+                        continue;} //thornmoss
+                    if(pLoadout.includes(71) && !pLoadout.includes(14)){
+                        continue;} //braveryshroom
+                    if(pLoadout.includes(72) && !pLoadout.includes(27)){
+                        continue;} //kingcactus
+                    // all criteria met, return loadout
+                    return pLoadout.concat(zLoadout);
+                }
+            }
+            return [];
+        }
+
+        //boolean, check if any element in arr2 exists in set1
+        function hasCommonElement(arr1, arr2) {
+            return arr1.some(num => arr2.includes(num));
         }
     </script>
 
