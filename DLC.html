@@ -51,6 +51,45 @@
             margin: 10px;
             font-size: 16px;
         }
+            /* Display random outputs side by side */
+        .output-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Add space between the two elements */
+            font-size: 18px;
+            font-weight: bold;
+        }
+            /* Display random outputs side by side */
+        .plant-loadout-container {
+            display: flex;
+            /*justify-content: center;*/
+            gap: 20px; /* Add space between the two elements */
+            font-size: 18px;
+            font-weight: bold;
+        }
+            /* Display random outputs side by side */
+        .zombie-loadout-container {
+            display: flex;
+            /*//justify-content: center;*/
+            gap: 20px; /* Add space between the two elements */
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Style footer to align items horizontally */
+        .footer-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px; /* Space between button and text */
+        }
+
+        /* Optional: Style button for better appearance */
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -68,22 +107,39 @@
         <h1>PVZ DLC Mod</h1>
         <p>This page a randomly generated number:</p>
 
-        <!-- Button to Generate Random Number -->
-        <button onclick="generateRandomNumber()">Generate Random Number</button>
+        <div class="output-container">
+            <p id="randomPlantDLCid"></p>
+            <p id="randomZombieDLCid"></p>
+        </div>
 
-        <!-- Display Random Number -->
-        <p id="randomPlantDLCid"></p>
-
-        <!-- Display Random Number -->
-        <p id="randomZombieDLCid"></p>
+        <div class="plant-loadout-container">
+            <p id="pDefaultID"></p>
+            <p id="p0id"></p>
+            <p id="p1id"></p>
+            <p id="p2id"></p>
+            <p id="p3id"></p>
+            <p id="p4id"></p>
+        </div>
+        
+        <div class="zombie-loadout-container">
+            <p id="zDefaultID"></p>
+            <p id="z0id"></p>
+            <p id="z1id"></p>
+            <p id="z2id"></p>
+            <p id="z3id"></p>
+            <p id="z4id"></p>
+        </div>
+        
 
     </div>
 
     <!-- Footer -->
     <footer>
-        <!-- Button to Generate Random Number -->
-        <button onclick="generateRandomNumber()">Generate Random Number</button>
-        <p>Made by Plovazo</p>
+        <div class="footer-container">
+            <button onclick="generateRandomNumber()">Random Unit</button>
+            <button onclick="randomizeDay()">Random Day</button>
+            <p>Made by Plovazo</p>
+        </div>
     </footer>
 
     <script>
@@ -239,16 +295,49 @@
             var selectedPlant = dlcPlant[randomPlantDLCid];
             var selectedZombie = dlcZombie[randomZombieDLCid];
             document.getElementById('randomPlantDLCid').innerHTML = 
-                `Random DLC Plant: ${selectedPlant.name} <br>
-                <img src="${selectedPlant.imageURL}" alt="${selectedPlant.name}" width="100">`;
+                `${selectedPlant.name} <br>
+                <img src="${selectedPlant.imageURL}" alt="${selectedPlant.name}" width="80">`;
             document.getElementById('randomZombieDLCid').innerHTML = 
-                `Random DLC Zombie: ${selectedZombie.name} <br>
-                <img src="${selectedZombie.imageURL}" alt="${selectedZombie.name}" width="100">`;
+                `${selectedZombie.name} <br>
+                <img src="${selectedZombie.imageURL}" alt="${selectedZombie.name}" width="80">`;
         }
 
-        function displayLoadout(pLoadout,zLoadout) {
+        function displayLoadout(pLoadout, zLoadout) {
+            if (pLoadout.length != 5 || zLoadout.length != 5) {
+                throw new Error("Both pLoadout and zLoadout must have a length of 5");
+            }
 
+            // Display the 0th index first (sunflower and grave)
+            let plantElement = document.getElementById(`pDefaultID`);
+            let zombieElement = document.getElementById(`zDefaultID`);
+            let plant = dlcPlant[sunflowerID - 1];
+            plantElement.innerHTML = `${plant.name} <br>
+                <img src="${plant.imageURL}" alt="${plant.name}" width="70">`;
+
+            let zombie = dlcZombie[graveID - 1];
+            zombieElement.innerHTML = `${zombie.name} <br>
+                <img src="${zombie.imageURL}" alt="${zombie.name}" width="70">`;
+
+            // Now loop for indices 0 through 4
+            for (let i = 0; i < 6; i++) {
+                let plantElement = document.getElementById(`p${i}id`);
+                let zombieElement = document.getElementById(`z${i}id`);
+
+                if (plantElement && pLoadout[i]) {
+                    let plant = dlcPlant[pLoadout[i] - 1];
+                    plantElement.innerHTML = `${plant.name} <br>
+                        <img src="${plant.imageURL}" alt="${plant.name}" width="70">`;
+                }
+
+                if (zombieElement && zLoadout[i]) {
+                    let zombie = dlcZombie[zLoadout[i] - 1];
+                    zombieElement.innerHTML = `${zombie.name} <br>
+                        <img src="${zombie.imageURL}" alt="${zombie.name}" width="70">`;
+                }
+            }
         }
+
+
 
         function getShuffledArray(arr) {
             let shuffled = arr.slice(); // Copy the array to avoid modifying the original
@@ -261,73 +350,41 @@
 
         // returns empty int array or int array size 5+5
         function randomizeDay(){
-            let validLoadout = false;
-            let pLoadout;
-            let zLoadout;
             let slotCount = 5;
             //to avoid infinite looping
             for(let limitCounter=40; limitCounter>0; limitCounter--){
                 for(let piece=0; piece<30; piece+=slotCount){
                     pLoadout = getShuffledArray(dlcDayWoodsPlantID).slice(piece,piece+slotCount);
                     zLoadout = getShuffledArray(dlcDayNightWoodsZID).slice(piece,piece+slotCount);
-                    if(pLoadout.includes(coffeeBeanID) 
-                        != hasCommonElement(dlcMushroomPID,pLoadout)){
-                        continue;
-                    }
-                    if(pLoadout.includes(waterPotID) 
-                        != hasCommonElement(dlcAquaticPID,pLoadout)){
-                        continue;
-                    }
-                    if(pLoadout.includes(torchwoodID)){
-                        if(!hasCommonElement(dlcUseTorchwoodPID,pLoadout)){
-                            continue;
-                        }
-                    }
-                    if(!hasCommonElement(dlcWinConditionPID,pLoadout)){
-                        continue;
-                    }
-                    if(pLoadout.includes(magnetShroomID)){
-                        if(hasCommonElement(dlcMetalZID,zLoadout)){
-                            continue;
-                        }
-                    }
+                    if (pLoadout.includes(coffeeBeanID) !== hasCommonElement(dlcMushroomPID, pLoadout)) continue;
+                    if (pLoadout.includes(waterPotID) !== hasCommonElement(dlcAquaticPID, pLoadout)) continue;
+                    if (pLoadout.includes(torchwoodID) && !hasCommonElement(dlcUseTorchwoodPID, pLoadout)) continue;
+                    if (!hasCommonElement(dlcWinConditionPID, pLoadout)) continue;
+                    if (pLoadout.includes(magnetShroomID) && hasCommonElement(dlcMetalZID, zLoadout)) continue;
 
-                    // if have upgradable without base, invalid
-                    if(pLoadout.includes(41) && !pLoadout.includes(8)){
-                        continue;} //gatlingpea
-                    //if(!pLoadout.includes(42) && !pLoadout.includes(2)){
-                    //    continue;} //twinsunflower
-                    if(pLoadout.includes(43) && !pLoadout.includes(11)){
-                        continue;} //gloomshroom
-                    if(pLoadout.includes(44) && !pLoadout.includes(17)){
-                        continue;} //cattail
-                    if(pLoadout.includes(45) && !pLoadout.includes(40)){
-                        continue;} //wintermelon
-                    if(pLoadout.includes(47) && !pLoadout.includes(22)){
-                        continue;} //spikerock
-                    if(pLoadout.includes(48) && !pLoadout.includes(35)){
-                        continue;} //cobcannon
-                    if(pLoadout.includes(65) && !pLoadout.includes(11)){
-                        continue;} //frostshroom
-                    if(pLoadout.includes(66) && !pLoadout.includes(7)){
-                        continue;} //devourer
-                    if(pLoadout.includes(67) && !pLoadout.includes(23)){
-                        continue;} //plasmawood
-                    if(pLoadout.includes(68) && !pLoadout.includes(6)){
-                        continue;} //icequeenpea
-                    if(pLoadout.includes(69) && !pLoadout.includes(24)){
-                        continue;} //vinenut
-                    if(pLoadout.includes(70) && !pLoadout.includes(22)){
-                        continue;} //thornmoss
-                    if(pLoadout.includes(71) && !pLoadout.includes(14)){
-                        continue;} //braveryshroom
-                    if(pLoadout.includes(72) && !pLoadout.includes(27)){
-                        continue;} //kingcactus
+                    // If upgrade plants are present without their base form, invalid loadout
+                    if (pLoadout.includes(41) && !pLoadout.includes(8)) continue; // Gatling Pea without Repeater
+                    if (pLoadout.includes(43) && !pLoadout.includes(11)) continue; // Gloom-shroom without Fume-shroom
+                    if (pLoadout.includes(72) && !pLoadout.includes(27)) continue; // King Cactus without Cactus
+                    //if(!pLoadout.includes(42) && !pLoadout.includes(2)) continue; //Twinsunflower without Sunflower
+                    if (pLoadout.includes(44) && !pLoadout.includes(17)) continue; // cattail
+                    if (pLoadout.includes(45) && !pLoadout.includes(40)) continue; // wintermelon
+                    if (pLoadout.includes(47) && !pLoadout.includes(22)) continue; // spikerock
+                    if (pLoadout.includes(48) && !pLoadout.includes(35)) continue; // cobcannon
+                    if (pLoadout.includes(65) && !pLoadout.includes(11)) continue; // frostshroom
+                    if (pLoadout.includes(66) && !pLoadout.includes(7)) continue; // devourer
+                    if (pLoadout.includes(67) && !pLoadout.includes(23)) continue; // plasmawood
+                    if (pLoadout.includes(68) && !pLoadout.includes(6)) continue; // icequeenpea
+                    if (pLoadout.includes(69) && !pLoadout.includes(24)) continue; // vinenut
+                    if (pLoadout.includes(70) && !pLoadout.includes(22)) continue; // thornmoss
+                    if (pLoadout.includes(71) && !pLoadout.includes(14)) continue; // braveryshroom
+
                     // all criteria met, return loadout
-                    return pLoadout.concat(zLoadout);
+                    displayLoadout(pLoadout,zLoadout);
+                    return; 
                 }
             }
-            return [];
+            return "No loadout found";
         }
 
         //boolean, check if any element in arr2 exists in set1
